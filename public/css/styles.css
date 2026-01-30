@@ -1,0 +1,80 @@
+@keyframes fadeLoop {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.intro-scene {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.intro-scene__image {
+  opacity: 1;
+  animation: fadeLoop 15s ease-in-out infinite;
+}
+
+.intro-scene__button {
+  width: 100px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid #720000;
+  font-family: "Cinzel Decorative";
+  color: #720000;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  bottom: 100px;
+  transition: all 0.4s ease-in-out;
+  z-index: 10;
+}
+
+.intro-scene__button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: #720000;
+  z-index: -1;
+  transition: height 0.3s ease;
+}
+
+.intro-scene__button:hover::before {
+  box-shadow: 0 0 5px #720000;
+  height: 100%;
+}
+
+.intro-scene__button:hover {
+  color: #000;
+}
+
+.intro-scene__flash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  background-color: #000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.05s ease-in-out;
+}
+
+/*# sourceMappingURL=styles.css.map */
