@@ -143,6 +143,8 @@ html, body
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    position: relative;
+    z-index: 1;
 }
 
 .game-window__top-menu
@@ -222,4 +224,54 @@ html, body
     background-size: cover;
     background-repeat: no-repeat;
     animation: fogLoop 15s ease-in-out infinite;
+}
+
+.ui-window
+{
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    position: fixed;
+    top: 0px;
+    pointer-events: none;
+}
+
+.ui-window__backpack
+{
+    width: 60%;
+    height: 50%;
+    border: 1px solid $light_red;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    position: relative;
+    left: 20%;
+    top: 25%;
+}
+
+.ui-window__exit
+{
+    width: 20px;
+    height: 20px;
+    border: 1px solid $light_red;
+    border-radius: 100%;
+    background-color: $black;
+    position: relative;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.ui-window__exit::before
+{
+    content: "\00D7";
+    color: $light_red;
+    font-size: 30px;
+    position: absolute;
+    top: -8px;
+    left: 1px;
+    pointer-events:fill;
+}
+
+#backpack_window
+{
+    display: none;
 }

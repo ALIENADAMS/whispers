@@ -4,6 +4,9 @@ const enterButton = document.getElementById('enter');
 const enterSound = document.getElementById('enter-sound');
 
 const fadeLogo = document.getElementById('fade-logo');
+const backpackButton = document.getElementById('backpack');
+const exitButton = document.getElementById('exit_button');
+const backpack = document.getElementById('backpack_window');
 
 function flash()
 {
@@ -45,4 +48,18 @@ if(fadeLogo != null)
     setTimeout(() => {
         fadeLogo.style.opacity = 1;
     }, 1000);
+}
+
+if(backpackButton != null)
+{
+    backpackButton.addEventListener('click', () => {
+        backpack.style.display = 'block';
+    });
+}
+
+if(exitButton != null)
+{
+    exitButton.addEventListener('click', () => {
+        backpack.style.display = 'none';
+    });
 }
