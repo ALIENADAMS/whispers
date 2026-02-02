@@ -10,6 +10,8 @@ const uiWindowTitle = document.getElementsByClassName('ui-window__title')[0];
 const menuButtons = document.querySelectorAll('.game-window__top-menu-item');
 
 const characterButton = document.getElementById('character');
+const hero = document.getElementById('hero_window');
+const heroExitButton = document.getElementById('hero_exit__button');
 
 const backpackButton = document.getElementById('backpack');
 const exitButton = document.getElementById('exit_button');
@@ -74,7 +76,8 @@ if(menuButtons != null)
 if(characterButton != null)
 {
     characterButton.addEventListener('click', () => {
-        alert('Nowe okno bohatera');
+        hero.style.display = 'block';
+        uiWindowTitle.textContent = 'BOHATER';
     });
 }
 
@@ -91,6 +94,14 @@ if(exitButton != null)
 {
     exitButton.addEventListener('click', () => {
         backpack.style.display = 'none';
+        document.getElementsByClassName('game-window__city')[0].style.opacity = 1;
+    });
+}
+
+if(heroExitButton != null)
+{
+    heroExitButton.addEventListener('click', () => {
+        hero.style.display = 'none';
         document.getElementsByClassName('game-window__city')[0].style.opacity = 1;
     });
 }

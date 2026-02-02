@@ -218,7 +218,9 @@ html, body {
 .ui-window__backpack {
   width: 300px;
   height: 376px;
-  border: 1px solid #df1c1c;
+  border-width: 1px;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, #1e9e7e, #0a352a) 1;
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(5px);
   position: fixed;
@@ -227,8 +229,20 @@ html, body {
   transform: translate(-50%, -50%);
 }
 
+.ui-window__hero {
+  width: 600px;
+  height: 376px;
+}
+
 .ui-window__top_bar {
   width: 300px;
+  height: 25px;
+  background: url("../img/ui-background.png") repeat;
+  box-shadow: inset 0 -6px 12px rgba(0, 0, 0, 0.9);
+}
+
+.hero__top_bar {
+  width: 600px;
   height: 25px;
   background: url("../img/ui-background.png") repeat;
   box-shadow: inset 0 -6px 12px rgba(0, 0, 0, 0.9);
@@ -256,7 +270,7 @@ html, body {
   width: 258px;
   height: 26px;
   font-family: "Cinzel Decorative";
-  color: #df1c1c;
+  color: #a58a14;
   position: relative;
   float: left;
   text-align: center;
@@ -275,6 +289,10 @@ html, body {
 }
 
 #backpack_window {
+  display: none;
+}
+
+#hero_window {
   display: none;
 }
 
