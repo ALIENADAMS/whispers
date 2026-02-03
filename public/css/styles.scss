@@ -4,6 +4,7 @@ $light_red: #df1c1c;
 $green: #1e9e7e;
 $dark_green: #0a352a;
 $gold: #a58a14;
+$light_gold: #f8d01d;
 
 @keyframes fadeLoop
 {
@@ -304,6 +305,40 @@ html, body
 .hero-avatar__avatar-frame
 {
     width: 230px;
+    z-index: 3;
+    position: relative;
+}
+
+.hero-avatar__exp-frame
+{
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    background: conic-gradient($light_gold 120deg, $black 120deg 360deg);
+    position: relative;
+    left: 45px;
+    top: -220px;
+    z-index: 1;
+    margin-bottom: -200px;
+    transition: background 0.5s linear;
+}
+
+.hero-avatar__hero-image
+{
+    width: 157px;
+    height: 157px;
+    border-radius: 100%;
+    background: radial-gradient(circle,rgba(222, 222, 222, 1) 0%, rgba(156, 156, 156, 1) 50%, rgba(97, 97, 97, 1) 100%);
+    position: relative;
+    left: 70px;
+    top: -200px;
+    z-index: 2;
+    margin-bottom: -157px;
+}
+
+.hero-avatar__hero-image img
+{
+    width: 140px;
 }
 
 .hero-avatar__hero-name
@@ -320,6 +355,7 @@ html, body
     padding-top: 45px;
     position: relative;
     top: -25px;
+    z-index: 2;
 }
 
 .ui-window__exit

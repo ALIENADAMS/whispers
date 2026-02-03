@@ -12,6 +12,7 @@ const menuButtons = document.querySelectorAll('.game-window__top-menu-item');
 const characterButton = document.getElementById('character');
 const hero = document.getElementById('hero_window');
 const heroExitButton = document.getElementById('hero_exit__button');
+const heroXPRing = document.querySelector('.hero-avatar__exp-frame');
 
 const backpackButton = document.getElementById('backpack');
 const exitButton = document.getElementById('exit_button');
@@ -73,11 +74,24 @@ if(menuButtons != null)
     });
 }
 
+function setXpRing(currentXP, maxXP)
+{
+    console.log(heroXPRing);
+    const safeXP = Math.max(0, Math.min(currentXP, maxXP));
+    const percent = safeXP / maxXP;
+    const angle = percent * 360;
+    console.log('Procentowo: ', percent);
+    console.log('Kąt: ', angle);
+    heroXPRing.style.background = `conic-gradient( #a58a14 0deg ${angle}deg, #000000 ${angle}deg 360deg )`;
+    //heroXPRing.style.background = `conic-gradient($light_gold ${angle}deg, $black ${angle}deg 360deg)`;
+}
+
 if(characterButton != null)
 {
     characterButton.addEventListener('click', () => {
         hero.style.display = 'block';
         uiWindowTitle.textContent = 'BOHATER';
+        setXpRing(230, 300);
     });
 }
 
