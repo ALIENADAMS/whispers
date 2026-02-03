@@ -18,6 +18,7 @@ const backpackButton = document.getElementById('backpack');
 const exitButton = document.getElementById('exit_button');
 const backpack = document.getElementById('backpack_window');
 const backpackMain = document.getElementById('backpack_main');
+const tooltip = document.getElementById('tooltip');
 
 const notesButton = document.getElementById('notes');
 
@@ -127,6 +128,16 @@ for(var i = 1; i <= 42; i++)
     slot.id = 'slot' + i;
     document.getElementById('backpack_main').appendChild(slot);
 }
+
+document.querySelectorAll('.special').forEach(skill => {
+    skill.addEventListener('mouseenter', () => {
+        tooltip.innerHTML = `<strong>${skill.dataset.title}</strong><br>${skill.dataset.desc}`;
+        tooltip.style.display = 'block';
+    });
+    skill.addEventListener('mouseleave', e => {
+        tooltip.style.display = 'none';
+    });
+});
 
 //Notes scripts
 if(notesButton != null)
