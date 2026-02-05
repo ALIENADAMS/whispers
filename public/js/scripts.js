@@ -96,15 +96,6 @@ if(characterButton != null)
     });
 }
 
-//Backpack scripts
-if(backpackButton != null)
-{
-    backpackButton.addEventListener('click', () => {
-        backpack.style.display = 'block';
-        uiWindowTitle.textContent = 'PLECAK';
-    });
-}
-
 if(exitButton != null)
 {
     exitButton.addEventListener('click', () => {
@@ -139,11 +130,98 @@ document.querySelectorAll('.special').forEach(skill => {
     });
 });
 
+async function showBackpack()
+{
+    try
+    {
+        const response = await fetch('/backpack');
+        if(!response.ok) throw new Error('Nie udało się pobrać plecaka');
+        const backpack = await response.json();
+        console.log(backpack);
+        console.log(backpack.length);
+        for(let i = 1; i <= backpack.length; i++)
+        {
+            document.getElementById('slot' + i).innerHTML = `<img src="./img/` + backpack[i-1].image + `" alt="Notatka" class="note_image"/><p class="note_title">` + backpack[i-1].title + `</p>`;
+            document.getElementById('slot' + i).addEventListener('mouseenter', () => {
+                tooltip.innerHTML = `${backpack[i-1].title}<br />${backpack[i-1].content}`;
+                tooltip.style.display = 'block';
+            });
+        }
+
+    }
+    catch(err)
+    {
+        console.error(err);
+    }
+}
+
+async function showItem(i)
+{
+    try
+    {
+        const response = await fetch('/backpack');
+        if(!response.ok) throw new Error('Nie udało się pobrać plecaka');
+        const backpack = await response.json();
+        //alert(`<img src="../img/` + backpack[i-1].image + `" alt='backpack[i-1].title'"><br />` + backpack[i-1].title + `'<br />'` + backpack[i-1].content);
+    }
+    catch(err)
+    {
+        console.error(err);
+    }
+}
+
+//Backpack scripts
+if(backpackButton != null)
+{
+    backpackButton.addEventListener('click', () => {
+        backpack.style.display = 'block';
+        uiWindowTitle.textContent = 'PLECAK';
+        showBackpack();
+    });
+}
+
 //Notes scripts
+async function showNotes()
+{
+    let screenWidth = window.screen.width;
+    let screenHeight = window.screen.height;
+    try
+    {
+        const response = await fetch('/notes');
+        if(!response.ok) throw new Error('Nie udało się pobrać notatek');
+        const notes = await response.json();
+        console.log(notes);
+        console.log(notes.length);
+        for(let i = 1; i <= notes.length; i++)
+        {
+            document.getElementById('slot' + i).innerHTML = `<img src="./img/note.png" alt="Notatka" class="note_image"/><p class="note_title">` + notes[i-1].title + `</p>`;
+            document.getElementById('slot' + i).addEventListener('click', () =>
+            {
+                document.getElementsByClassName('ui-window__note')[0].style.display = 'block';
+                document.getElementsByClassName('ui-window__note')[0].style.left = (screenWidth / 2) - 100 + 'px';
+                document.getElementsByClassName('ui-window__note')[0].style.top = (screenHeight / 2) - 100 + 'px';
+                document.getElementsByClassName('ui-window__note')[0].innerHTML = notes[i-1].title + '<br /><br />' + notes[i-1].content;
+                document.getElementsByClassName('ui-window__note')[0].innerHTML += '<div class="ui-window__exit" id="note-exit__button"></div>';
+                const noteExitButton = document.getElementById('note-exit__button');
+                noteExitButton.addEventListener('click', () => 
+                {
+                    document.getElementsByClassName('ui-window__note')[0].style.display = 'none';
+                });
+            });
+        }
+
+    }
+    catch(err)
+    {
+        console.error(err);
+    }
+}
+
 if(notesButton != null)
 {
     notesButton.addEventListener('click', () => {
         backpack.style.display = 'block';
         uiWindowTitle.textContent = 'NOTATKI';
+        showNotes();
     });
 }

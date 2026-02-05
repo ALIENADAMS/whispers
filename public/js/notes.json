@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "title": "Zatrute miasto",
+        "content": "Twoja podróż zaprowadziła Cię do dziwnego miasta. Wygląda jak wymarłe. Wszystkie budynki w zasięgu wzroku są jakby spalone. Panuje tu przejmująca cisza.",
+        "unlock_condition": null,
+        "tags": ["horror", "exploration"]
+    },
+    {
+        "id": 2,
+        "title": "Ulica",
+        "content": "Ulica jest wyłożona dziwnym, czarnym kamieniem. Wydaje się brudny i śliski.",
+        "unlock_condition": null,
+        "tags": ["horror", "exploration"]
+    }
+]

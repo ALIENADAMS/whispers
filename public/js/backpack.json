@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "title": "Sztylet",
+        "content": "Atak +1",
+        "image": "dagger.png"
+    },
+    {
+        "id": 2,
+        "title": "Duży sztylet",
+        "content": "Atak +3",
+        "image": "dagger.png"
+    }
+]
