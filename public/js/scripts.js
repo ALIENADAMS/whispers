@@ -22,7 +22,11 @@ const tooltip = document.getElementById('tooltip');
 
 const notesButton = document.getElementById('notes');
 
+const gameWindowBanner = document.querySelector('.game-window__banner');
+
 const itemLimit = 42;
+
+music.volume = 0.1;
 
 function flash()
 {
@@ -141,7 +145,7 @@ async function showBackpack()
         console.log(backpack.length);
         for(let i = 1; i <= backpack.length; i++)
         {
-            document.getElementById('slot' + i).innerHTML = `<img src="./img/` + backpack[i-1].image + `" alt="Notatka" class="note_image"/><p class="note_title">` + backpack[i-1].title + `</p>`;
+            document.getElementById('slot' + i).innerHTML = `<img src="./img/` + backpack[i-1].image + `" alt="Item" class="backpack_image"/>`;
             document.getElementById('slot' + i).addEventListener('mouseenter', () => {
                 tooltip.innerHTML = `${backpack[i-1].title}<br />${backpack[i-1].content}`;
                 tooltip.style.display = 'block';
@@ -224,4 +228,27 @@ if(notesButton != null)
         uiWindowTitle.textContent = 'NOTATKI';
         showNotes();
     });
+}
+
+//window banner effect
+function banner_left()
+{
+    const duration = 20;
+    const x = (Math.random() - 0.5) * 4;
+    const y = (Math.random() - 0.5) * 4;
+
+    gameWindowBanner.style.transform = `translate(${x}px, ${y}px)`;
+
+    setTimeout(() => {
+        gameWindowBanner.style.transform = 'translate(0, 0)';
+    }, 150);
+
+    const next = Math.random() * 10000 + 2000;
+    setTimeout(banner_left, next);
+}
+
+//gameWindowBanner.style.left = '20%';
+if(gameWindowBanner != null)
+{
+    banner_left();
 }

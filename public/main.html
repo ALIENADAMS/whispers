@@ -9,6 +9,7 @@
     <body>
 
         <div class="game-window">
+            <audio id="background-music" src="./audio/noctharum.mp3" loop autoplay></audio>
             
             <div class="game-window__top-menu">
                  <img class="game-window__top-menu-logo" id="fade-logo" src="./img/whispers.png" alt="Whispers" />
@@ -20,7 +21,11 @@
             </div>
 
             <div class="game-window__city">
-                <img src="./img/city.png" alt="Whispers" />
+                <img class="game-window__background" src="./img/city.png" alt="Whispers" />
+
+                <div class="game-window__banner">
+                    <div class="game-window__title">Noctharum</div>
+                </div>
             </div>
 
             <div class="game-window__fog">
