@@ -52,6 +52,26 @@
   }
 }
 @keyframes expPulse {}
+@keyframes runePulse {
+  0% {
+    opacity: 0.1;
+  }
+  30% {
+    opacity: 0.5;
+  }
+  55% {
+    opacity: 0.2;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
 html, body {
   margin: 0;
   padding: 0;
@@ -203,20 +223,54 @@ html, body {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+  height: 20%;
+  position: absolute;
+  top: 5%;
+  z-index: 0;
+  background-color: #000;
+}
+
+.game-window__banner img {
+  width: 100%;
+  height: 100%;
+}
+
+.game-window__table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
   height: 50%;
   position: absolute;
   top: 25%;
-  z-index: 2;
-  background-image: url("../img/city.png");
-  border: 10px solid transparent;
+  background-image: url("../img/table.jpg");
+  border-left: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid transparent;
   border-image-source: url("../img/table-border.jpg");
   border-image-slice: 10;
   border-image-repeat: stretch;
-  box-shadow: 0px 0px 100px #000 inset;
+  background-blend-mode: darken;
   will-change: transform;
+  -webkit-box-shadow: inset 0px 60px 100px -61px rgb(255, 255, 255);
+  -moz-box-shadow: inset 0px 60px 100px -61px rgb(255, 255, 255);
+  box-shadow: inset 0px 60px 100px -61px rgb(255, 255, 255);
 }
 
-.game-window__title {
+.game-window__column {
+  width: 20%;
+}
+
+#left {
+  position: absolute;
+  left: 0;
+}
+
+.rune {
+  opacity: 0.05;
+  animation: runePulse 20s infinite;
+}
+
+.game-window__column-title {
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -224,12 +278,33 @@ html, body {
   height: 30px;
   font-family: "Cinzel Decorative";
   font-size: 24px;
-  color: #720000;
+  color: #df1c1c;
   text-align: center;
-  border-top: 1px solid #720000;
-  border-bottom: 1px solid #720000;
+  border-top: 1px solid #df1c1c;
+  border-bottom: 1px solid #df1c1c;
   position: relative;
   top: 50px;
+}
+
+.game-window__column-text {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  display: block;
+  width: 80%;
+  min-height: 300px;
+  font-family: "Cinzel Decorative";
+  font-size: 16px;
+  color: #df1c1c;
+  text-align: left;
+  position: relative;
+  top: 50px;
+}
+
+.game-window__column-text span {
+  display: inline-block;
+  border-top: 1px solid #df1c1c;
+  border-bottom: 1px solid #df1c1c;
 }
 
 .game-window__fog {
@@ -242,6 +317,36 @@ html, body {
   background-size: cover;
   background-repeat: no-repeat;
   animation: fogLoop 15s ease-in-out infinite;
+}
+
+.game-window__main {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 90%;
+  min-height: 30px;
+  position: relative;
+  top: 50px;
+}
+
+.game-window__cart {
+  width: 200px;
+  cursor: pointer;
+  transition: 0.5s;
+  z-index: 3;
+  position: fixed;
+}
+
+.game-window__cart:not(.active):hover {
+  transform: rotate(2deg);
+  box-shadow: 0 0 10px #000;
+}
+
+.game-window__cart.active {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.8);
+  z-index: 1000;
 }
 
 .ui-window {

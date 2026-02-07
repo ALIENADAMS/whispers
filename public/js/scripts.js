@@ -22,7 +22,8 @@ const tooltip = document.getElementById('tooltip');
 
 const notesButton = document.getElementById('notes');
 
-const gameWindowBanner = document.querySelector('.game-window__banner');
+const gameWindowTable = document.querySelector('.game-window__table');
+const gameWindowCards = document.querySelectorAll('.game-window__cart');
 
 const itemLimit = 42;
 
@@ -230,25 +231,50 @@ if(notesButton != null)
     });
 }
 
-//window banner effect
-function banner_left()
+//window table effect
+function table_left()
 {
     const duration = 20;
     const x = (Math.random() - 0.5) * 4;
     const y = (Math.random() - 0.5) * 4;
 
-    gameWindowBanner.style.transform = `translate(${x}px, ${y}px)`;
+    gameWindowTable.style.transform = `translate(${x}px, ${y}px)`;
 
     setTimeout(() => {
-        gameWindowBanner.style.transform = 'translate(0, 0)';
+        gameWindowTable.style.transform = 'translate(0, 0)';
     }, 150);
 
     const next = Math.random() * 10000 + 2000;
-    setTimeout(banner_left, next);
+    setTimeout(table_left, next);
 }
 
 //gameWindowBanner.style.left = '20%';
-if(gameWindowBanner != null)
+if(gameWindowTable != null)
 {
-    banner_left();
+    table_left();
+}
+
+//cart browser
+if(gameWindowCards != null)
+{
+    gameWindowCards.forEach(card => {
+        card.addEventListener('click', e => {
+            e.stopPropagation();
+            card.classList.add('active');
+        });
+
+        if(card.classList.contains('active'))
+        {
+            let level = document.createElement('div');
+            level.width = '100px';
+            level.height = '100px';
+            document.getElementsByClassName('game-window__main')[0].appendChild(level);
+        }
+    });
+
+    document.addEventListener('click', () => {
+        gameWindowCards.forEach(card => {
+            card.classList.remove('active');
+        });
+    });
 }
