@@ -20,7 +20,7 @@ const backpack = document.getElementById('backpack_window');
 const backpackMain = document.getElementById('backpack_main');
 const tooltip = document.getElementById('tooltip');
 
-const notesButton = document.getElementById('notes');
+const notesButton = document.getElementById('notes_button');
 
 const gameWindowTable = document.querySelector('.game-window__table');
 const gameWindowCards = document.querySelectorAll('.game-window__cart');

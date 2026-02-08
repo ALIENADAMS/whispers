@@ -307,12 +307,76 @@ html, body {
   border-bottom: 1px solid #df1c1c;
 }
 
+.game-window__footer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  height: 15%;
+  position: absolute;
+  top: 76%;
+  background-image: url("../img/table.jpg");
+  border-left: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-image-source: url("../img/table-border.jpg");
+  border-image-slice: 10;
+  border-image-repeat: stretch;
+  background-blend-mode: darken;
+  will-change: transform;
+  -webkit-box-shadow: inset 0px 60px 100px -61px rgb(0, 0, 0);
+  -moz-box-shadow: inset 0px 60px 100px -61px rgb(0, 0, 0);
+  box-shadow: inset 0px 60px 100px -61px rgb(0, 0, 0);
+}
+
+.footer-box {
+  width: 25%;
+  height: 100%;
+  float: left;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.footer-box__item {
+  margin-left: auto;
+  margin-right: auto;
+  width: 95px;
+  height: 95px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.footer-box__item:hover {
+  transform: translate(-4px, -4px);
+  -webkit-box-shadow: 0 0 20px #000;
+  -moz-box-shadow: 0 0 20px #000;
+  box-shadow: 0 0 20px #000;
+}
+
+.footer-box__title {
+  display: block;
+  width: 100px;
+  position: relative;
+  z-index: 2;
+  top: 30px;
+  font-family: "Cinzel Decorative";
+  font-size: 16px;
+  color: #df1c1c;
+  text-align: center;
+  transition: none;
+}
+
+.footer-box img {
+  width: 100px;
+  position: relative;
+  top: -40px;
+}
+
 .game-window__fog {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 30%;
+  height: 10%;
   background-image: url("../img/fog.jpg");
   background-size: cover;
   background-repeat: no-repeat;
