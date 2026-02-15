@@ -1,0 +1,25 @@
+{
+    "currentScene": "room1",
+    "scenes": {
+        "room1": {
+            "description": "Budzisz się w obcym, cichym pokoju.",
+            "objects": {
+                "desk": {
+                    "type": "desk",
+                    "drawer": {
+                        "opened": false,
+                        "items": ["note"]
+                    }
+                },
+                "door": {
+                    "type": "door",
+                    "locked": true
+                }
+            }
+        }
+    },
+    "player": {
+        "inventory": [],
+        "mentalState": "stable"
+    }
+}

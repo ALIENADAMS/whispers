@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Whispers</title>
+        <link rel="stylesheet" href="./css/game.css">
+        <link href="https://fonts.googleapis.com/css?family=New Rocker" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
+    </head>
+    <body>
+
+        <div class="scene">
+            
+            <p class="description"></p>
+
+            <div class="info"></div>
+
+            <div class="desk"></div>
+
+            <div class="drawer">
+                <div class="item-note">Jestem już...</div>
+                <div class="drawer-handle"></div>
+            </div>
+
+            <div class="inventory-button">
+                <img src="./img/backpack.png">
+            </div>
+
+            <div class="inventory hidden">
+                <div class="inventory-title">Ekwipunek</div>
+                <div class="inventory-x__button">X</div>
+                <div class="inventory-list" id="inventory-list"></div>
+            </div>
+
+        </div>
+
+        <div class="note-view hidden" id="note-view">
+            <div id="note-content"></div>
+            <button class="note-view__button" id="close-note">Zamknij</button>
+        </div>
+
+        <script type="module" src="./js/main.js"></script>
+    
+    </body>
+</html>
